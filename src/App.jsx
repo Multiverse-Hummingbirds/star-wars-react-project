@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import Navigation from './components/Navigation';
 import 'bootstrap/dist/css/bootstrap.css';
 
 const starWarsAPI = `https://swapi.dev/api/people/`
@@ -23,7 +24,7 @@ function App() {
 
 	return (
 		<BrowserRouter>
-			<h2>Star Wars API</h2>
+			<Navigation />
 			<Routes>
 				<Route path="/" element={<Home peopleList={peopleList} />} />
 			</Routes>
