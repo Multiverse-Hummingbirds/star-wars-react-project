@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import 'bootstrap/dist/css/bootstrap.css';
+
+const starWarsAPI = `https://swapi.dev/api/people/`
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	// initialize state with people
+	const [peopleList, setPeopleList] = useState([]);
+
+	//useEffect for fetching
+	useEffect(() => {
+		fetch(starWarsAPI)
+			.then((res) => res.json())
+			.then((data) => {
+				setPeopleList(data.results)
+			})
+			.catch((error) => {
+				console.error(error)
+			})
+	}, [])
+
+	return (
+		<BrowserRouter>
+			<h2>Star Wars API</h2>
+			<Routes>
+				<Route path="/" element={<Home peopleList={peopleList} />} />
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;
