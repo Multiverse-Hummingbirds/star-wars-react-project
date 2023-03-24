@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { Link } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap'
+import starWarsLogo from '../images/starWarsLogo.png'
 
-function PeopleCard({ homeworld, name }) {
+function PeopleCard({ name }) {
     // initialize state
     const [people, setPeople] = useState(null);
     // Use context for adding to favorites
 
     // useEffect to fetch the data
     useEffect(() => {
-        fetch(homeworld)
+        fetch()
             .then((res) => res.json)
             .then((data) => {
                 setPeople(data)
@@ -21,7 +23,7 @@ function PeopleCard({ homeworld, name }) {
 
     return (
         <Card style={{ width: '20rem' }} className='mx-auto'>
-            <Card.Img variant='top' />
+            <Card.Img variant='top' src={starWarsLogo} width='280' height='160' bg='dark' />
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text as='div'>
@@ -31,7 +33,6 @@ function PeopleCard({ homeworld, name }) {
                     Favorite
                 </Button>
             </Card.Body>
-
         </Card>
     )
 }
