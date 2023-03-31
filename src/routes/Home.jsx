@@ -34,7 +34,7 @@ function Home({ peopleList }) {
             <Row className='g-4'>
                 {filterdPeople.map((person, idx) => (
                     <Col key={person.name}>
-                        <PeopleCard person={person} id={idx + 1}/>
+                        <PeopleCard person={person} id={idx + 1} />
                     </Col>
                 ))}
             </Row>

@@ -31,7 +31,7 @@ function PeopleCard({ person, id }) {
                     <Link to={`/person/${id}`}>{person.name}</Link>
                 </Card.Title>
                 <Card.Text as='div'>
-                    <Link>Homeworld</Link>
+                    <Link to={`/planetDetails`}>Homeworld</Link>
                     {person.homeworld}
                 </Card.Text>
                 {favorites.includes(person.name) ? (
