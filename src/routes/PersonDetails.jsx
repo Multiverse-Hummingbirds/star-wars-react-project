@@ -20,7 +20,7 @@ function PersonDetails() {
 
     return (
         <Card style={{ width: '60%' }} className='mx-auto'>
-            <Card.Title className='mx-auto'>{character.name} Details</Card.Title>
+            <Card.Title style={{ marginTop: '20px' }} className='mx-auto'>{character.name} Details</Card.Title>
             <Card.Text style={{ marginLeft: '20px' }}>Gender: {character.gender}</Card.Text>
             <Card.Text style={{ marginLeft: '20px' }}>Height: {character.height}</Card.Text>
             <Card.Text style={{ marginLeft: '20px' }}>Birth year: {character.birth_year}</Card.Text>
