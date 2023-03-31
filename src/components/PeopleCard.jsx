@@ -2,8 +2,9 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Button, Card } from 'react-bootstrap'
 import starWarsLogo from '../images/starWarsLogo.png'
 import { FavoritesContext } from '../FavoritesProvider';
+import { Link } from 'react-router-dom';
 
-function PeopleCard({ name }) {
+function PeopleCard({ person, id }) {
     // initialize state
     const [people, setPeople] = useState(null);
     // Use context for adding to favorites
@@ -19,7 +20,7 @@ function PeopleCard({ name }) {
             .catch((error) => {
                 console.error(error)
             })
-    }, [name])
+    }, [person.name])
 
 
     return (
@@ -27,18 +28,18 @@ function PeopleCard({ name }) {
             <Card.Img variant='top' src={starWarsLogo} width='280' height='160' bg='dark' />
             <Card.Body>
                 <Card.Title>
-                    {name}
+                    <Link to={`/person/${id}`}>{person.name}</Link>
                 </Card.Title>
                 <Card.Text as='div'>
-                    Homeworld:
-                    {people?.homeworld}
+                    <Link>Homeworld</Link>
+                    {person.homeworld}
                 </Card.Text>
-                {favorites.includes(name) ? (
-                    <Button variant='danger' onClick={() => removeFavorite(name)}>
+                {favorites.includes(person.name) ? (
+                    <Button variant='danger' onClick={() => removeFavorite(person.name)}>
                         Unfavorite
                     </Button>
                 ) : (
-                    <Button variant='primary' onClick={() => addFavorite(name)}>
+                    <Button variant='primary' onClick={() => addFavorite(person.name)}>
                         Favorite
                     </Button>
                 )}

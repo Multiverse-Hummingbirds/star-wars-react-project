@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
 import { Card } from 'react-bootstrap'
 
 function PlanetsCard({ name }) {

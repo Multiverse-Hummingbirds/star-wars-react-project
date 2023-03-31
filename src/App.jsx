@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Planets from './routes/Planets';
 import Favorites from './routes/Favorites';
 import FavoritesProvider from './FavoritesProvider'
+import PersonDetails from './routes/PersonDetails';
 
 const starWarsAPI = `https://swapi.dev/api/people/`
 
@@ -52,6 +53,7 @@ function App() {
 					/>
 					<Route path="/planets" element={<Planets />} />
 					<Route path="/favorites" element={<Favorites />} />
+                    <Route path="/person/:id" element={<PersonDetails />} />
 				</Routes>
 			</FavoritesProvider>
 		</BrowserRouter>
