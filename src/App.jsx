@@ -6,6 +6,8 @@ import Home from './routes/Home';
 import Navigation from './components/Navigation';
 import 'bootstrap/dist/css/bootstrap.css';
 import Planets from './routes/Planets';
+import Favorites from './routes/Favorites';
+import FavoritesProvider from './FavoritesProvider'
 
 const starWarsAPI = `https://swapi.dev/api/people/`
 
@@ -30,23 +32,28 @@ function App() {
 
 	return (
 		<BrowserRouter>
-			<Navigation />
-			<Routes>
-				<Route path="/" element={loading ? (
-					<Button variant='primary' disabled style={{ width: '10%', margin: '0 50rem' }}>
-						<Spinner
-							as="span"
-							animation="border"
-							size="sm"
-							role="status"
-							aria-hidden="true"
-						/>
-						Loading...
-					</Button>
-				) :
-					<Home peopleList={peopleList} />} />
-				<Route path="/planets" element={<Planets />} />
-			</Routes>
+			<FavoritesProvider>
+				<Navigation />
+				<Routes>
+					<Route path="/" element={loading ? (
+						<Button variant='primary' disabled style={{ width: '10%', margin: '0 50rem' }}>
+							<Spinner
+								as="span"
+								animation="border"
+								size="sm"
+								role="status"
+								aria-hidden="true"
+							/>
+							Loading...
+						</Button>
+					) :
+						<Home peopleList={peopleList} />}
+
+					/>
+					<Route path="/planets" element={<Planets />} />
+					<Route path="/favorites" element={<Favorites />} />
+				</Routes>
+			</FavoritesProvider>
 		</BrowserRouter>
 	);
 }
