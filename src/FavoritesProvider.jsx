@@ -1,7 +1,12 @@
 import React, { createContext, useState } from 'react'
+import { useContext } from 'react';
 
 // Context intialization
 export const FavoritesContext = createContext();
+
+// export function useFavorites(){
+//     return useContext(FavoritesContext)
+// }
 
 function FavoritesProvider({ children }) {
     // initialize state for the list of favorites
@@ -24,4 +29,4 @@ function FavoritesProvider({ children }) {
     )
 }
 
-export default FavoritesProvider
+export default FavoritesProvider;

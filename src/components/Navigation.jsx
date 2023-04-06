@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import starWarsLogo from '../images/starWarsLogo.png'
+import {Link} from 'react-router-dom'
 
 function Navigation() {
     return (
@@ -16,7 +17,9 @@ function Navigation() {
                 <Nav className='me-auto'>
                     <Nav.Link href='/'>Characters</Nav.Link>
                     <Nav.Link href='/planets'>Planets</Nav.Link>
-                    <Nav.Link href='/favorites'>Favorites</Nav.Link>
+                    <Nav.Link to='/favorites'>Favorites</Nav.Link> 
+                    
+
                 </Nav>
             </Container>
         </Navbar>

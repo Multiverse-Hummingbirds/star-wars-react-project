@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
-import { FavoritesContext } from '../FavoritesProvider'
-import PeopleCard from '../components/PeopleCard'
+import { FavoritesContext, useFavorites } from '../FavoritesProvider'
+import  PeopleCard  from '../components/PeopleCard'
 import { Container, Row, Col } from 'react-bootstrap';
 
 function Favorites() {
     const { favorites } = useContext(FavoritesContext);
+    //const { favorites } = useFavorites();
+    console.log(favorites);
 
     return (
         <Container>
@@ -16,7 +18,7 @@ function Favorites() {
                 ))}
             </Row>
         </Container>
-    )
+    );
 }
 
 export default Favorites
