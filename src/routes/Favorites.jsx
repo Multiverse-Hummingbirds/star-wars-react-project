@@ -5,15 +5,17 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 function Favorites() {
     const { favorites } = useContext(FavoritesContext);
-    //const { favorites } = useFavorites();
-    console.log(favorites);
+
+    if(favorites.length === 0){
+        return <div>No favorites in list.</div>
+    }
 
     return (
         <Container>
             <Row className='g-4'>
-                {favorites.map((name) => (
-                    <Col key={name}>
-                        <PeopleCard name={name} />
+                {favorites.map((person) => (
+                    <Col key={person.name}>
+                        <PeopleCard person={person} />
                     </Col>
                 ))}
             </Row>

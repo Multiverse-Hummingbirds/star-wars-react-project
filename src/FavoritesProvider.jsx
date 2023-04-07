@@ -17,9 +17,9 @@ function FavoritesProvider({ children }) {
         setFavorites([...favorites, favorite])
     }
 
-    function removeFavorite(name) {
+    function removeFavorite(person) {
         // copy current list and filter out the character by name
-        setFavorites(favorites.filter((favorite) => name !== favorite.name))
+        setFavorites(favorites.filter((favorite) => person.name !== favorite.name))
     }
 
     return (
