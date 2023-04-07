@@ -34,12 +34,12 @@ function PeopleCard({ person, id, name }) {
                     <Link to={`/planetDetails/${person.homeworld.slice(30, -1)}`}>Homeworld</Link>
                     {person.homeworld.slice(30, -1)}
                 </Card.Text>
-                {favorites.includes(person.name) ? (
-                    <Button variant='danger' onClick={() => removeFavorite(person.name)}>
+                {favorites.includes(person) ? (
+                    <Button variant='danger' onClick={() => removeFavorite(person)}>
                         Unfavorite
                     </Button>
                 ) : (
-                    <Button variant='primary' onClick={() => addFavorite(person.name)}>
+                    <Button variant='primary' onClick={() => addFavorite(person)}>
                         Favorite
                     </Button>
                 )}
