@@ -1,7 +1,12 @@
 import React, { createContext, useState } from 'react'
 
+
 // Context intialization
 export const FavoritesContext = createContext();
+
+// export function useFavorites(){
+//     return useContext(FavoritesContext)
+// }
 
 function FavoritesProvider({ children }) {
     // initialize state for the list of favorites
@@ -14,7 +19,7 @@ function FavoritesProvider({ children }) {
 
     function removeFavorite(name) {
         // copy current list and filter out the character by name
-        setFavorites(favorites.filter((favorite) => name !== favorite))
+        setFavorites(favorites.filter((favorite) => name !== favorite.name))
     }
 
     return (
@@ -24,4 +29,4 @@ function FavoritesProvider({ children }) {
     )
 }
 
-export default FavoritesProvider
+export default FavoritesProvider;

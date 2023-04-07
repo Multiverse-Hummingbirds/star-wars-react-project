@@ -4,7 +4,7 @@ import starWarsLogo from '../images/starWarsLogo.png'
 import { FavoritesContext } from '../FavoritesProvider';
 import { Link } from 'react-router-dom';
 
-function PeopleCard({ person, id }) {
+function PeopleCard({ person, id, name }) {
     // initialize state
     const [people, setPeople] = useState(null);
     // Use context for adding to favorites
