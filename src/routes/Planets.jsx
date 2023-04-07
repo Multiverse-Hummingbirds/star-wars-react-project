@@ -51,7 +51,7 @@ function Planets() {
 
             <Row className='g-4'>
                 {loading ? (
-                    <Button variant='primary' disabled>
+                    <Button variant='primary' disabled style={{ width: '10%', margin: '0 45%', marginTop: '10px' }}>
                         <Spinner
                             as="span"
                             animation="border"

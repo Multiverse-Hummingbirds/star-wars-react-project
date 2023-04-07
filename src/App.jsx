@@ -38,7 +38,7 @@ function App() {
 				<Navigation />
 				<Routes>
 					<Route path="/" element={loading ? (
-						<Button variant='primary' disabled style={{ width: '10%', margin: '0 50rem' }}>
+						<Button variant='primary' disabled style={{ width: '10%', margin: '0 45%' }}>
 							<Spinner
 								as="span"
 								animation="border"
