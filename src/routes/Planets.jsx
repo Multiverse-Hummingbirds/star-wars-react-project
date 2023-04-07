@@ -64,7 +64,7 @@ function Planets() {
                 ) :
                     filteredPlanets.map((planet) => (
                         <Col key={planet.name}>
-                            <PlanetsCard name={planet.name} />
+                            <PlanetsCard planet={planet} />
                         </Col>
                     ))
                 }

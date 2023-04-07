@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from 'react'
 // import { Button, Card } from 'react-bootstrap'
+import {useParams} from 'react-router-dom';
 
-function PlanetDetails({ person }) {
-    const [planet, setPlanet] = useState([]);
+function PlanetDetails() {
+    const [planet, setPlanet] = useState("");
+    const {id} = useParams();
 
     useEffect(() => {
-        fetch({})
-            .then((res) => res.json())
-            .then((data) => {
-                setPlanet(data)
-            })
-            .catch((error) => {
-                console.error(error)
-            })
-    }, [planet])
-
-    console.log("Planet is here" + planet)
+        try {
+            const fetchPlanet = async (planetID) => {
+            const res = await fetch(`https://swapi.dev/api/planets/${planetID}/`)
+            const data = await res.json();
+            console.log(data);
+            setPlanet(data);
+        }
+        fetchPlanet(id)
+    } catch (error) {
+            console.error(error)
+        }
+    }, [id])
 
     return (
         <div>
-            PlanetDetails {planet.name}
+            PlanetDetails: {id}
+            {planet.diameter}
         </div>
     )
 }

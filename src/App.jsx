@@ -55,7 +55,7 @@ function App() {
 					<Route path="/planets" element={<Planets />} />
 					<Route path="/favorites" element={<Favorites />} />
 					<Route path="/person/:id" element={<PersonDetails />} />
-					<Route path='/planetDetails' element={<PlanetDetails />} />
+					<Route path='/planetDetails/:id' element={<PlanetDetails />} />
 				</Routes>
 			</FavoritesProvider>
 		</BrowserRouter>

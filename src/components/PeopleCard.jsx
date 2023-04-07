@@ -13,7 +13,7 @@ function PeopleCard({ person, id }) {
     // useEffect to fetch the data
     useEffect(() => {
         fetch(`https://swapi.dev/api/people/`)
-            .then((res) => res.json)
+            .then((res) => res.json())
             .then((data) => {
                 setPeople(data)
             })
@@ -31,8 +31,8 @@ function PeopleCard({ person, id }) {
                     <Link to={`/person/${id}`}>{person.name}</Link>
                 </Card.Title>
                 <Card.Text as='div'>
-                    <Link to={`/planetDetails`}>Homeworld</Link>
-                    {person.homeworld}
+                    <Link to={`/planetDetails/${person.homeworld.slice(30, -1)}`}>Homeworld</Link>
+                    {person.homeworld.slice(30, -1)}
                 </Card.Text>
                 {favorites.includes(person.name) ? (
                     <Button variant='danger' onClick={() => removeFavorite(person.name)}>

@@ -1,27 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Card } from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
-function PlanetsCard({ name }) {
-    // initialize state
-    const [planet, setPlanet] = useState(null);
-
-    // useEffect to fetch data
-    useEffect(() => {
-        fetch()
-            .then((res) => res.json)
-            .then((data) => {
-                setPlanet(data.results)
-            })
-    }, [name])
+function PlanetsCard({ planet }) {
 
     return (
         <Card style={{ width: '20rem' }} className='mx-auto'>
             <Card.Body>
                 <Card.Title>
-                    {name}
+                    {planet.name}
                 </Card.Title>
                 <Card.Text as='div'>
-                    Planets Description
+                    <Link to={`/planetDetails/${planet.url.slice(30, -1)}`}>Planet Link</Link>
+                    Planets Description: {planet.diameter}
                 </Card.Text>
             </Card.Body>
         </Card>
