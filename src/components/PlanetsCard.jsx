@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function PlanetsCard({ planet }) {
 
@@ -11,8 +11,13 @@ function PlanetsCard({ planet }) {
                     {planet.name}
                 </Card.Title>
                 <Card.Text as='div'>
-                    <Link to={`/planetDetails/${planet.url.slice(30, -1)}`}>Planet Link</Link>
-                    Planets Description: {planet.diameter}
+                    <Link to={`/planetDetails/${planet.url.slice(30, -1)}`}>Planet Details</Link>
+                </Card.Text>
+                <Card.Text as='div'>
+                    Climate: {planet.climate}
+                </Card.Text>
+                <Card.Text as='div'>
+                    Population: {planet.population}
                 </Card.Text>
             </Card.Body>
         </Card>

@@ -4,7 +4,7 @@ import starWarsLogo from '../images/starWarsLogo.png'
 import { FavoritesContext } from '../FavoritesProvider';
 import { Link } from 'react-router-dom';
 
-function PeopleCard({ person, id, name }) {
+function PeopleCard({ person, id }) {
     // initialize state
     const [people, setPeople] = useState(null);
     // Use context for adding to favorites
@@ -30,9 +30,9 @@ function PeopleCard({ person, id, name }) {
                 <Card.Title>
                     <Link to={`/person/${id}`}>{person.name}</Link>
                 </Card.Title>
-                <Card.Text as='div'>
+                <Card.Text as='div' style={{ marginBottom: '10px' }}>
                     <Link to={`/planetDetails/${person.homeworld.slice(30, -1)}`}>Homeworld</Link>
-                    {person.homeworld.slice(30, -1)}
+                    {/*person.homeworld.slice(30, -1)*/}
                 </Card.Text>
                 {favorites.includes(person) ? (
                     <Button variant='danger' onClick={() => removeFavorite(person)}>

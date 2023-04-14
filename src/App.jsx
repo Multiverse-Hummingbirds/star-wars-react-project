@@ -26,7 +26,7 @@ function App() {
 			.then((data) => {
 				setLoading(false)
 				setPeopleList(data.results)
-				console.log("data" , data.results)
+				console.log("data", data.results)
 			})
 			.catch((error) => {
 				console.error(error)
